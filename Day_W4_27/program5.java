@@ -1,0 +1,27 @@
+class program5 {
+    public int[] maximizeXor(int[] nums, int[][] queries) {
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        for (int i = 0; i < queries.length; i++) {
+            int xi = queries[i][0];
+            int ai = queries[i][1];
+            
+            int maxXOR = -1;
+            
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[j] <= ai) {
+                    maxXOR = Math.max(maxXOR, nums[j] ^ xi);
+                }
+            }
+            list.add(maxXOR);
+        }
+        
+        // list ----> array
+        int[] ans = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            ans[i] = list.get(i);
+        }
+        
+        return ans;
+    }
+}
